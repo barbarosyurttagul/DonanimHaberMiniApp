@@ -24,7 +24,7 @@
     </ul>
 
     @Html.PagedListPager(
-        Model.po,,
+        Model.posts,
         page => Url.Action("Index",
         new { page }),
         new PagedListRenderOptions
