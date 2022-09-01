@@ -1,8 +1,37 @@
-﻿@{
+﻿@using X.PagedList
+@using X.PagedList.Mvc.AspNetCore
+@using X.PagedList.Web.Common
+
+@model DH.MvcUI.Models.PostIndexViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <a href="@Url.Action("Index", "Post")" class="btn btn-primary">Yeni Konu Aç</a>
+    <h1 class="display-4">Konular</h1>
+    <p>Açılan tüm konular en son girilen en başta olacak şekilde düzenlenmiştir.</p>
+    <ul class="list-group">
+        @foreach (var post in Model.posts)
+        {
+            <li class="list-group-item">
+
+                <a href="Post/detail/@post.Id"><b>@post.PostTitle</b></a>
+                <p>@post.DatePublished</p>
+            </li>
+        }
+    </ul>
+
+    @Html.PagedListPager(
+        Model.po,,
+        page => Url.Action("Index",
+        new { page }),
+        new PagedListRenderOptions
+        {
+        LiElementClasses = new []{"page-item"},
+        PageClasses = new []{"page-link"}
+        })
+
+
 </div>
