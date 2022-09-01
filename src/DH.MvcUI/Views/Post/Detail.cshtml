@@ -1,0 +1,37 @@
+@model DH.MvcUI.Models.PostDetailViewModel
+@{
+    ViewData["Title"] = "Detail Page";
+}
+
+<div>
+    <a href="@Url.Action("Reply", "Post", new {id = Model.Post.Id})" class="btn btn-primary">Cevapla</a>
+    <h1 class="display-2">@Model.Post.PostTitle</h1>
+    <h4 class="display-6">@Model.Post.DatePublished</h4>
+    <p>Detaylı Görünüm</p>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <p class="text-left">@Model.Post.FirstName @Model.Post.LastName</p>
+        </li>
+
+        <li class="list-group-item">
+            <b class="text-justify">@Model.Post.Content</b>
+        </li>
+    </ul>
+    @if (Model.Replies.Count != 0)
+    {
+        <p>Konuya Verilen Cevaplar</p>
+        <ul class="list-group">
+            @foreach (var reply in Model.Replies)
+            {
+                <li class="list-group-item">
+
+                    <b>@reply.PostTitle</b>
+                    <p>@reply.FirstName @reply.LastName</p>
+                    <p>@reply.Content</p>
+                    <p>@reply.DatePublished</p>
+                </li>
+            }
+        </ul>
+    }
+
+</div>

@@ -1,0 +1,35 @@
+@model DH.MvcUI.Models.PostSaveViewModel
+
+@{
+    ViewData["Title"] = "Yeni konu oluştur";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Yeni Konu Aç</h1>
+    @using (Html.BeginForm("CreatePost", "Post", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label class="control-label">Adınız</label>
+            @Html.TextBoxFor(t => t.Post.FirstName, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label class="control-label">Soyadınız</label>
+            @Html.TextBoxFor(t => t.Post.LastName, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label class="control-label">Email</label>
+            @Html.TextBoxFor(t => t.Post.Email, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label class="control-label">Konu Başlığı</label>
+            @Html.TextBoxFor(t => t.Post.PostTitle, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label class="control-label">İçerik</label>
+            @Html.TextBoxFor(t => t.Post.Content, new { @class = "form-control" })
+        </div>
+
+        <button type="submit" class="btn btn-default">Kaydet</button>
+    }
+</div>

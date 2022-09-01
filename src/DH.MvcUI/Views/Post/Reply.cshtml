@@ -1,0 +1,31 @@
+@model DH.MvcUI.Models.PostSaveViewModel
+
+@{
+    ViewData["Title"] = "Konuya Cevap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Cevap Ver</h1>
+    @using (Html.BeginForm("ReplyPost", "Post", new{rootId = ViewBag.RootId, postTitle = ViewBag.PostTitle}, FormMethod.Post))
+    {
+        <div class="form-group">
+            <label class="control-label">Adınız</label>
+            @Html.TextBoxFor(t => t.Post.FirstName, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label class="control-label">Soyadınız</label>
+            @Html.TextBoxFor(t => t.Post.LastName, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label class="control-label">Email</label>
+            @Html.TextBoxFor(t => t.Post.Email, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label class="control-label">İçerik</label>
+            @Html.TextBoxFor(t => t.Post.Content, new { @class = "form-control" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    }
+</div>
