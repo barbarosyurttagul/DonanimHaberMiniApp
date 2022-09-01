@@ -12,7 +12,7 @@ namespace DH.Entities.Concrete
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string TopicTitle { get; set; }
+        public string PostTitle { get; set; }
         public string Content { get; set; }
         public DateTime DatePublished { get; set; }
     }
