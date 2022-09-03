@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DH.Core;
 
 namespace DH.Entities.Concrete
 {
-    public class Post
+    public class Post : IEntity
     {
         public int Id { get; set ; }
         public int RootId { get; set; }

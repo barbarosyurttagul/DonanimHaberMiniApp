@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DH.DataAccess.Abstract;
 using DH.Entities.Concrete;
+using System.Data.SqlClient;
 
 namespace DH.DataAccess.Concrete.AdoNet
 {
@@ -13,10 +14,11 @@ namespace DH.DataAccess.Concrete.AdoNet
 
         public List<Post> GetAll()
         {
+            Seed.ConnectAndSeed();
             string connStr = configuration.SqlConnectionString;
             using (var connection = new SqlConnection(connStr))
             {
-                using (var command = new SqlCommand("SELECT * from Posts  WHERE RootId = 0 ORDER BY DatePublished DESC", connection))
+                using (var command = new SqlCommand("SELECT * from Posts WHERE RootId = 0 ORDER BY DatePublished DESC", connection))
                 {
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();

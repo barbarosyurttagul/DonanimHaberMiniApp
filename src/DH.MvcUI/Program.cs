@@ -1,7 +1,7 @@
 using DH.Business.Abstract;
 using DH.Business.Concrete;
 using DH.DataAccess.Abstract;
-using DH.DataAccess.Concrete;
+using DH.DataAccess.Concrete.AdoNet;
 
 var builder = WebApplication.CreateBuilder(args);
 
