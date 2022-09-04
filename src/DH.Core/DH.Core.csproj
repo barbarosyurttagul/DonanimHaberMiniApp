@@ -6,4 +6,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="CrossCuttingConcerns\" />
+    <None Remove="CrossCuttingConcerns\Caching\" />
+    <None Remove="CrossCuttingConcerns\Caching\Redis\" />
+    <None Remove="StackExchange.Redis" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CrossCuttingConcerns\" />
+    <Folder Include="CrossCuttingConcerns\Caching\" />
+    <Folder Include="CrossCuttingConcerns\Caching\Redis\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="StackExchange.Redis" Version="2.6.48" />
+  </ItemGroup>
 </Project>

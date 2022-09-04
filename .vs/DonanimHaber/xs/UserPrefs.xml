@@ -1,25 +1,35 @@
 ﻿<Properties StartupConfiguration="{73C2BAD0-C6CA-4889-8003-0886498BC323}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.src.DH.MvcUI PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.src.DH.MvcUI PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/DH.DataAccess/Concrete/AdoNet/Seed.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/DH.Business/Concrete/PostManager.cs">
     <Files>
-      <File FileName="src/DH.DataAccess/Concrete/AdoNet/Seed.cs" Line="28" Column="40" />
-      <File FileName="src/DH.DataAccess/Concrete/AdoNet/AdoPostDal.cs" Line="52" Column="215" />
+      <File FileName="src/DH.Business/Concrete/PostManager.cs" Line="18" Column="9" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="DonanimHaber" expanded="True">
             <Node name="src" expanded="True">
-              <Node name="DH.DataAccess" expanded="True">
+              <Node name="DH.Business" expanded="True">
                 <Node name="Concrete" expanded="True">
-                  <Node name="AdoNet" expanded="True" />
+                  <Node name="PostManager.cs" selected="True" />
                 </Node>
+              </Node>
+              <Node name="DH.Core" expanded="True">
+                <Node name="CrossCuttingConcerns" expanded="True">
+                  <Node name="Caching" expanded="True">
+                    <Node name="Redis" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="DH.MvcUI" expanded="True">
+                <Node name="Controllers" expanded="True" />
+                <Node name="Properties" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -30,4 +40,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
 </Properties>

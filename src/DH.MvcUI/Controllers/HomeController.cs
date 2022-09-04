@@ -11,6 +11,7 @@ public class HomeController : Controller
     private readonly ILogger<HomeController> _logger;
     private readonly IPostService _postService;
 
+    
     public HomeController(ILogger<HomeController> logger, IPostService postService)
     {
         _logger = logger;
@@ -26,7 +27,7 @@ public class HomeController : Controller
             {
                 posts = posts
             };
-            return View(model);
+        return View(model);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,7 +1,10 @@
 using DH.Business.Abstract;
 using DH.Business.Concrete;
+using DH.Core.CrossCuttingConcerns.Caching;
+using DH.Core.CrossCuttingConcerns.Caching.Redis;
 using DH.DataAccess.Abstract;
 using DH.DataAccess.Concrete.AdoNet;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +14,16 @@ builder.Services.AddControllersWithViews();
 //Dependency Injections
 builder.Services.AddScoped<IPostService, PostManager>();
 builder.Services.AddScoped<IPostDal, AdoPostDal>();
+builder.Services.AddSingleton<ICacheManager, RedisCacheManager>();
+
+//Redis Caching
+IConfiguration configuration = builder.Configuration;
+var multiplexer = ConnectionMultiplexer.Connect(configuration.GetConnectionString("Redis"));
+builder.Services.AddSingleton<IConnectionMultiplexer>(multiplexer);
 
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
