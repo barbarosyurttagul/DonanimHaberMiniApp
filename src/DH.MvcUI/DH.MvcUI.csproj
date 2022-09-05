@@ -10,6 +10,8 @@
   <ItemGroup>
     <PackageReference Include="X.PagedList" Version="8.4.3" />
     <PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.3" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.4.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DH.Business\DH.Business.csproj">
@@ -24,5 +26,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="X.PagedList.Mvc.Core" />
+    <None Remove="Utilities\" />
+    <None Remove="RabbitMQ.Client" />
+    <None Remove="Newtonsoft.Json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utilities\" />
   </ItemGroup>
 </Project>

@@ -15,12 +15,6 @@ namespace DH.Business.Concrete
         private readonly IPostDal _postDal;
         private readonly ICacheManager _cacheManager;
 
-        static List<Post> posts => new()
-        {
-            new Post { Id = 2, RootId = 0, FirstName = "fdgfd", LastName = "kjnkjn", Email = "", PostTitle = "asdasd", Content = "asda", DatePublished = DateTime.Now }
-        };
-
-        
         public PostManager(IPostDal postDal, ICacheManager cacheManager)
         {
             _postDal = postDal;

@@ -2,15 +2,18 @@ using DH.Business.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using DH.Entities.Concrete;
 using DH.MvcUI.Models;
+using DH.MvcUI.Utilities;
 
 namespace DH.MvcUI.Controllers
 {
     public class PostController : Controller
     {        
         private readonly IPostService _postService;
-        public PostController(IPostService postService)
+        private readonly IMessageProducer _messagePublisher;
+        public PostController(IPostService postService, IMessageProducer messagePublisher)
         {
             _postService = postService;
+            _messagePublisher = messagePublisher;
         }
         public IActionResult Index()
         {
@@ -21,6 +24,7 @@ namespace DH.MvcUI.Controllers
         public IActionResult CreatePost(Post post)
         {
             _postService.Insert(post);
+            _messagePublisher.SendPostMessage(post);
             return RedirectToAction("Index", "Home");
         }
 
