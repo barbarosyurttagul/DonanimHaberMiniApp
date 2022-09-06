@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using DH.Entities.Concrete;
 using DH.MvcUI.Models;
 using DH.MvcUI.Utilities;
+using DH.Core.CrossCuttingConcerns.Caching;
 
 namespace DH.MvcUI.Controllers
 {
@@ -10,10 +11,13 @@ namespace DH.MvcUI.Controllers
     {        
         private readonly IPostService _postService;
         private readonly IMessageProducer _messagePublisher;
-        public PostController(IPostService postService, IMessageProducer messagePublisher)
+        private readonly ICacheManager _cacheManager;
+
+        public PostController(IPostService postService, IMessageProducer messagePublisher, ICacheManager cacheManager)
         {
             _postService = postService;
             _messagePublisher = messagePublisher;
+            _cacheManager = cacheManager;
         }
         public IActionResult Index()
         {
@@ -24,7 +28,10 @@ namespace DH.MvcUI.Controllers
         public IActionResult CreatePost(Post post)
         {
             _postService.Insert(post);
+            //RabbitMQ publish
             _messagePublisher.SendPostMessage(post);
+            //Refresh Cache when a new post created
+            _cacheManager.Remove("allposts");
             return RedirectToAction("Index", "Home");
         }
 

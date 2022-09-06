@@ -13,7 +13,7 @@ namespace DH.MvcUI.Utilities
             var connection = factory.CreateConnection();
             using var channel = connection.CreateModel();
 
-            channel.QueueDeclare("posts");
+            channel.QueueDeclare("posts", exclusive: false);
             var json = JsonConvert.SerializeObject(message);
             var body = Encoding.UTF8.GetBytes(json);
 

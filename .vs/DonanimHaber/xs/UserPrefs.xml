@@ -1,37 +1,44 @@
-﻿<Properties StartupConfiguration="{73C2BAD0-C6CA-4889-8003-0886498BC323}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/DH.Business/Concrete/PostManager.cs">
+﻿<Properties StartupConfiguration="Multiple Projects">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects">
+      <Items>
+        <StartupItem ItemId="{73C2BAD0-C6CA-4889-8003-0886498BC323}" ItemName="DH.MvcUI" ConfigurationId="Default" />
+        <StartupItem ItemId="{EEF6F1D1-5AD2-4FD3-AA72-44F8A4738A53}" ItemName="DH.RabbitMQConsumer" ConfigurationId="Default" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.ItemProperties.src.DH.MvcUI PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.src.DH.RabbitMQConsumer PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/DH.MvcUI/Controllers/PostController.cs">
     <Files>
-      <File FileName="src/DH.Business/Concrete/PostManager.cs" Line="17" Column="1" />
+      <File FileName="src/DH.MvcUI/Controllers/PostController.cs" Line="31" Column="31" />
+      <File FileName="src/DH.MvcUI/Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="../DH.RabbitMQConsumer/RefreshRedis.cs" Line="1" Column="1" />
+      <File FileName="src/DH.MvcUI/Dockerfile" Line="1" Column="1" />
+      <File FileName="../DH.RabbitMQConsumer/Dockerfile" Line="22" Column="49" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="DonanimHaber" expanded="True">
             <Node name="src" expanded="True">
-              <Node name="DH.Business" expanded="True">
-                <Node name="Concrete" expanded="True" />
-              </Node>
-              <Node name="DH.Core" expanded="True">
-                <Node name="CrossCuttingConcerns" expanded="True">
-                  <Node name="Caching" expanded="True" />
-                </Node>
-              </Node>
               <Node name="DH.MvcUI" expanded="True">
                 <Node name="Controllers" expanded="True" />
-                <Node name="Properties" expanded="True" />
               </Node>
+              <Node name="DH.RabbitMQConsumer" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.ItemProperties.src.DH.MvcUI PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>

@@ -22,3 +22,10 @@ services:
       MSSQL_PID: "Express"
     ports:
       - "1433:1433"
+
+  dh.rabbitmqconsumer:
+    image: ${DOCKER_REGISTRY-}dh
+    build:
+      context: .
+      dockerfile: ../DH.RabbitMQConsumer/Dockerfile
+

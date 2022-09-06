@@ -13,22 +13,15 @@ namespace DH.Business.Concrete
     public class PostManager : IPostService
     {
         private readonly IPostDal _postDal;
-        private readonly ICacheManager _cacheManager;
-
-        public PostManager(IPostDal postDal, ICacheManager cacheManager)
+       
+        public PostManager(IPostDal postDal)
         {
             _postDal = postDal;
-            _cacheManager = cacheManager;
         }
 
         public List<Post> GetAll()
         {
-            return GetPostsFromCache();
-        }
- 
-        private List<Post> GetPostsFromCache()
-        {
-            return _cacheManager.GetOrAdd("allposts", () => { return _postDal.GetAll(); });
+            return _postDal.GetAll();
         }
 
         public List<Post> GetReplies(int id)
