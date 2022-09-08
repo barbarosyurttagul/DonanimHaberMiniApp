@@ -9,7 +9,7 @@ namespace DH.MvcUI.Utilities
     {
         public void SendPostMessage<T>(T message)
         {
-            var factory = new ConnectionFactory { HostName = "localhost" };
+            var factory = new ConnectionFactory { HostName = "rabbitmq" };
             var connection = factory.CreateConnection();
             using var channel = connection.CreateModel();
 

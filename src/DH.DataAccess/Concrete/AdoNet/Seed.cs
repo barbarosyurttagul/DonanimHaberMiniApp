@@ -11,7 +11,7 @@ namespace DH.DataAccess.Concrete.AdoNet
     {
         public static void ConnectAndSeed()
         {
-            SqlConnection myConn = new SqlConnection("Server=localhost,1433;Initial Catalog=master;User ID=SA;Password=Pa708WoRD");
+            SqlConnection myConn = new SqlConnection("Server=ms-sql-server,1433;Initial Catalog=master;User ID=SA;Password=Pa708WoRD");
 
             String str = "IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'DHDb') " +
                             "BEGIN " +
@@ -26,7 +26,7 @@ namespace DH.DataAccess.Concrete.AdoNet
                 myConn.Close();
             }
             //if table exists yapılacak
-            SqlConnection DHDbConn = new SqlConnection("Server=localhost,1433;Initial Catalog=DHDb;User ID=SA;Password=Pa708WoRD");
+            SqlConnection DHDbConn = new SqlConnection("Server=ms-sql-server,1433;Initial Catalog=DHDb;User ID=SA;Password=Pa708WoRD");
             String str2 = "USE DHDb; " +
                             "IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Posts')" +
                             "BEGIN " +

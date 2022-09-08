@@ -1,5 +1,15 @@
 version: '3.4'
 services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    ports:
+      - 15672:15672
+      - 5672:5672
+    networks:
+      - resolute
+
   dh.mvcui:
     build:
       context: .
@@ -9,11 +19,15 @@ services:
       - ASPNETCORE_URLS=https://+:443;http://+:80
       - ASPNETCORE_Kestrel__Certificates__Default__Password=1234
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    depends_on:
+      - rabbitmq
     volumes:
       - ~/.aspnet/https:/https:ro
     ports:
       - "8080:80"
       - 443
+    networks:
+      - resolute
   ms-sql-server:
     image: mcr.microsoft.com/mssql/server:2017-latest
     environment:
@@ -22,10 +36,24 @@ services:
       MSSQL_PID: "Express"
     ports:
       - "1433:1433"
+    networks:
+      - resolute
 
   dh.rabbitmqconsumer:
-    image: ${DOCKER_REGISTRY-}dh
     build:
       context: .
-      dockerfile: ../DH.RabbitMQConsumer/Dockerfile
+      dockerfile: src/DH.RabbitMQConsumer/Dockerfile
+    depends_on:
+      - rabbitmq
+    networks:
+      - resolute
 
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - resolute
+networks:
+  resolute:
+    driver: bridge

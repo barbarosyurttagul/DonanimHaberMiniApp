@@ -5,6 +5,7 @@ using DH.Core.CrossCuttingConcerns.Caching.Redis;
 using DH.DataAccess.Abstract;
 using DH.DataAccess.Concrete.AdoNet;
 using DH.MvcUI.Utilities;
+using RabbitMQ.Client;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,7 @@ builder.Services.AddScoped<IPostService, PostManager>();
 builder.Services.AddScoped<IPostDal, AdoPostDal>();
 builder.Services.AddSingleton<ICacheManager, RedisCacheManager>();
 builder.Services.AddScoped<IMessageProducer, RabbitMQProducer>();
+
 
 //Redis Caching
 IConfiguration configuration = builder.Configuration;
